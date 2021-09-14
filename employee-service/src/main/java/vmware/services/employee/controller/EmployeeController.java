@@ -47,5 +47,15 @@ public class EmployeeController {
 		LOGGER.info("Employee find: organizationId={}", organizationId);
 		return repository.findByOrganizationId(organizationId);
 	}
+
+	@GetMapping("/test")
+	public void test() {
+		LOGGER.info("test");
+	}
+
+	@GetMapping("/test2")
+	public void test2() {
+		LOGGER.info("test2");
+	}
 	
 }
