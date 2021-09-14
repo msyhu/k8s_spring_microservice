@@ -32,7 +32,7 @@ COPY --from=build --chown=nonroot:nonroot /tmp/target/application/ ./
 
 EXPOSE 8080
 
-ENV _JAVA_OPTIONS "-XX:MinRAMPercentage=60.0 -XX:MaxRAMPercentage=90.0 \
+ENV _JAVA_OPTIONS "-XX:MinRAMPercentage=90.0 -XX:MaxRAMPercentage=90.0 \
 -Djava.security.egd=file:/dev/./urandom \
 -Djava.awt.headless=true -Dfile.encoding=UTF-8 \
 -Dspring.output.ansi.enabled=ALWAYS \
