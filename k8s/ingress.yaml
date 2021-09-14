@@ -9,15 +9,15 @@ spec:
   - host: k8s.msyhu.com
     http:
       paths:
-      - path: /employee3
+      - path: /employee
         backend:
           serviceName: employee-external
           servicePort: 8080
-      - path: /department3
+      - path: /department
         backend:
           serviceName: department-external
           servicePort: 8080
-      - path: /organization3
+      - path: /organization
         backend:
           serviceName: organization-external
           servicePort: 8080
