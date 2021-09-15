@@ -2,7 +2,11 @@
 [![GitHub CI Status](https://github.com/AndriyKalashnykov/spring-microservices-k8s/workflows/ci/badge.svg)](https://github.com/AndriyKalashnykov/spring-microservices-k8s/actions?query=workflow%3Aci)
 ### Java Microservices with Spring Boot and Spring Cloud Kubernetes
 
-test
+- 쿠버네티스 환경에서 돌아가는 스프링 마이크로서비스 입니다.
+- [VMWARE 가이드](https://tanzu.vmware.com/developer/guides/kubernetes/app-enhancements-spring-k8s) 로 제공하는 kubernetes spring 환경의 구현물입니다.
+- [원본 소스 코드 주소](https://github.com/AndriyKalashnykov/spring-microservices-k8s) 입니다.
+- [GPL3.0 라이선스](https://www.gnu.org/licenses/gpl-3.0.html) 에 의거해, 저자의 코드를 수정하고 공개합니다. 
+
 
 ### Pre-requisites
 
