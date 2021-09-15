@@ -2,6 +2,8 @@
 [![GitHub CI Status](https://github.com/AndriyKalashnykov/spring-microservices-k8s/workflows/ci/badge.svg)](https://github.com/AndriyKalashnykov/spring-microservices-k8s/actions?query=workflow%3Aci)
 ### Java Microservices with Spring Boot and Spring Cloud Kubernetes
 
+test
+
 ### Pre-requisites
 
 - OS: Mac or Linux
