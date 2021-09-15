@@ -9,6 +9,7 @@ import vmware.services.organization.client.EmployeeClient;
 import vmware.services.organization.model.Organization;
 import vmware.services.organization.repository.OrganizationRepository;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
@@ -79,5 +80,33 @@ public class OrganizationController {
 			return null;
 		}
 	}
-	
+
+	@GetMapping("/reachablebutnotlive/{loopcount}")
+	public String makeReachableButNotLiveObj(@PathVariable("loopcount") String loopcountStr) {
+
+		LOGGER.info("reachablebutnotlive" + loopcountStr);
+		int loopcount = Integer.parseInt(loopcountStr);
+		Leak lk = new Leak();
+		for(int i = 0 ; i < loopcount; i++){
+			lk.addList(i);
+			lk.removeStr(i);
+		}
+
+		return "ok";
+	}
+
+}
+
+class Leak {
+	private ArrayList<String> lst = new ArrayList<>();
+
+	public void addList(int i) {
+		lst.add("abcdefghij" + i);
+	}
+
+	public void removeStr(int i) {
+		Object obj = lst.get(i);
+		obj = null;
+	}
+
 }
