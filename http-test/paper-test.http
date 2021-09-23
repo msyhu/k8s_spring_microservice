@@ -1,0 +1,3 @@
+GET http://localhost:8080/insertstring/10
+###
+GET http://localhost:8080/makeintegerarray/1/1000
