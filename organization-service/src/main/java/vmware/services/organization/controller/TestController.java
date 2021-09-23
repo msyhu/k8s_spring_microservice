@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 public class TestController {
@@ -49,6 +48,23 @@ public class TestController {
 
         return "ok";
     }
+
+    @GetMapping("/example")
+    public void example() throws Exception{
+
+        javassist.ClassPool cp = javassist.ClassPool.getDefault();
+        for (int i = 0; ; i++) {
+            if (i % 1000 == 0) Thread.sleep(100);
+            Class c = cp.makeClass("io.github.yaboong.Generated" + i).toClass();
+        }
+    }
+
+    @GetMapping("/systemgc")
+    public void systemgc() {
+
+        System.gc();
+    }
+
 }
 
 class Leak {
