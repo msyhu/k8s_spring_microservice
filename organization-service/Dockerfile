@@ -32,7 +32,7 @@ COPY --from=build --chown=nonroot:nonroot /tmp/target/application/ ./
 
 EXPOSE 8080
 
-ENV _JAVA_OPTIONS "-XX:InitialHeapSize=3g -XX:MaxHeapSize=3g -XX:+PrintCommandLineFlags -XX:+PrintGC -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC -XX:NewSize=2g -XX:MaxNewSize=2g \
+ENV _JAVA_OPTIONS "-XX:MinRAMPercentage=90.0 -XX:MaxRAMPercentage=90.0 \
 -Djava.security.egd=file:/dev/./urandom \
 -Djava.awt.headless=true -Dfile.encoding=UTF-8 \
 -Dspring.output.ansi.enabled=ALWAYS \

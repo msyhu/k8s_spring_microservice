@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import vmware.services.organization.client.DepartmentClient;
 import vmware.services.organization.client.EmployeeClient;
+import vmware.services.organization.model.Department;
+import vmware.services.organization.model.DepartmentEmployeeOrganization;
+import vmware.services.organization.model.Employee;
 import vmware.services.organization.model.Organization;
 import vmware.services.organization.repository.OrganizationRepository;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
@@ -79,6 +81,44 @@ public class OrganizationController {
 		} else {
 			return null;
 		}
+	}
+
+	@PostMapping("/addorganizationdepartmentemployee")
+	public DepartmentEmployeeOrganization addOrganizationDepartmentEmployee(@RequestBody DepartmentEmployeeOrganization deo) {
+		LOGGER.info("addOrganizationDepartmentEmployee={}", deo);
+
+		Organization o = new Organization();
+		o.setId(String.valueOf(deo.getId()));
+		o.setName(deo.getOrganizationName());
+		o.setAddress(deo.getAddress());
+		o.setDepartments(deo.getDepartments());
+		o.setEmployees(deo.getEmployees());
+		add(o);
+
+		Employee e = new Employee();
+		e.setId(deo.getId());
+		e.setName(deo.getEmployeeName());
+		e.setAge(deo.getAge());
+		e.setPosition(deo.getPosition());
+		employeeClient.add(e);
+
+		Department d = new Department();
+		d.setId(deo.getId());
+		d.setName(deo.getDepartName());
+		d.setEmployees(deo.getEmployees());
+		departmentClient.add(d);
+
+		return deo;
+	}
+
+	@GetMapping("/findorganizationdepartmentemployee/{id}")
+	public String findOrganizationDepartmentEmployee(@PathVariable("id") String id) {
+		LOGGER.info("findOrganizationDepartmentEmployee : id={}", id);
+		Organization o = repository.findById(id).get();
+		Employee e = employeeClient.findById(id);
+		Department d = departmentClient.findById(id);
+
+		return o.toString() + e.toString() + d.toString();
 	}
 
 }

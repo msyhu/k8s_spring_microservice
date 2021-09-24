@@ -5,3 +5,7 @@ GET http://localhost:8080/makeintegerarray/2/500
 GET http://localhost:8080/example
 ###
 GET http://localhost:8080/systemgc
+###
+GET http://localhost:8080/memoryleak/500
+###
+GET http://localhost:8080/threadsleep/10000/10000
